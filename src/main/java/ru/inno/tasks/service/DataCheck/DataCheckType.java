@@ -6,7 +6,7 @@ import ru.inno.tasks.service.LogTransformation;
 
 import java.util.List;
 
-@Component
+@Component()
 public class DataCheckType implements DataCheckable {
     public String checkType(String applType) {
         if (applType == null)

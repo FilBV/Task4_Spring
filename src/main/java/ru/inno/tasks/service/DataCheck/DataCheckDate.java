@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Component()
 public class DataCheckDate implements DataCheckable {
     public DateTimeFormatter getDateFormatter(){
         return DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");

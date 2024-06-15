@@ -13,9 +13,10 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Supplier;
 
-@Component
-public class DataReader implements DataReadable {
+@Component()
+public class DataReader implements Supplier<Model> {
 
     @Value("${file.path}")
     private String path;
@@ -27,13 +28,13 @@ public class DataReader implements DataReadable {
     }
 
     @LogTransformation("LogComponentReader.log")
-    @Override
     public List<Model> readFromFiles(String strPath) throws IOException {
         List<Model> modelList = new ArrayList<>();
         String delimeter = ";";
         List<Path> filesPath = Files.find(Path.of(strPath)
                 , Integer.MAX_VALUE
                 , (path, attr) -> path.toString().endsWith(".txt")).toList();
+
 
         for (Path pathCur : filesPath)
             try (Scanner scanFile = new Scanner(pathCur, StandardCharsets.UTF_8)) {
@@ -58,4 +59,8 @@ public class DataReader implements DataReadable {
         return readFromFiles(pathRead);
     }
 
+    @Override
+    public Model get() {
+        return null;
+    }
 }

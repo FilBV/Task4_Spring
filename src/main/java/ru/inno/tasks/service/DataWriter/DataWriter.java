@@ -11,7 +11,7 @@ import ru.inno.tasks.repository.UsersRep;
 
 import java.util.List;
 
-@Component
+@Component()
 public class DataWriter implements DataWriteable {
     private final UsersRep usersRep;
     private final LoginsRep loginsRep;

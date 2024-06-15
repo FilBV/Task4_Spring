@@ -7,7 +7,7 @@ import ru.inno.tasks.service.LogTransformation;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Component()
 public class DataCheckFio implements DataCheckable {
 
     public String checkFio(String fio) {
